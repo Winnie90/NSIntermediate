@@ -306,22 +306,22 @@ You can now add your own custom annotations to the map. Switch to **ViewControll
 
 Your project is now set up to follow along with the [NSIntemediate][LinkNSIntermediate] tutorial.
 
-[example]: /images/2015-10-04/00-Example.png "Example of the Google Maps Style Callout"
-[SingleViewApplication]: /images/2015-10-04/01-SingleViewApplication.png "Create a new single view application"
-[ProjectName]: /images/2015-10-04/02-ProjectName.png "Name your project"
-[ProjectNavigator]: /images/2015-10-04/03-ProjectNavigator.png "Select Main.storyboard from the project navigator"
-[MapViewSetup]: /images/2015-10-04/04-MapViewSetup.png "Drag map kit view onto view controller"
-[MapViewConstraints]: /images/2015-10-04/05-MapViewConstraints.png "Setup the map view constraints"
-[MapViewConnection]: /images/2015-10-04/06-MapViewConnection.png "Setup the map view connections"
-[DelegateConnection]: /images/2015-10-04/07-DelegateConnection.png "Setup the delegate connections"
-[AddMapKitFramework]: /images/2015-10-04/08-AddMapKitFramework.png "Add the MapKit Framework"
-[MapViewControllerProjectNavigator]: /images/2015-10-04/09-ProjectNavigator.png "Switch to the main view controller"
-[WorkingMapView]: /images/2015-10-04/10-WorkingMapView.png "Working Map View"
-[NewFile]: /images/2015-10-04/11-NewFile.png "New File"
-[CocoaTouchClass]: /images/2015-10-04/12-CocoaTouchClass.png "New Cooca Touch Class"
-[NamePerson]: /images/2015-10-04/13-NamePerson.png "Name Person"
-[Images]: /images/2015-10-04/14-Images.png "Import images into the project"
-[NSBeginnerFinal]: /images/2015-10-04/15-NSBeginnerFinal.png "Added your custom annotations to the MKMapView"
+[example]: {{site.baseurl}}/images/2015-10-04/00-Example.png "Example of the Google Maps Style Callout"
+[SingleViewApplication]: {{site.baseurl}}/images/2015-10-04/01-SingleViewApplication.png "Create a new single view application"
+[ProjectName]: {{site.baseurl}}/images/2015-10-04/02-ProjectName.png "Name your project"
+[ProjectNavigator]: {{site.baseurl}}/images/2015-10-04/03-ProjectNavigator.png "Select Main.storyboard from the project navigator"
+[MapViewSetup]: {{site.baseurl}}/images/2015-10-04/04-MapViewSetup.png "Drag map kit view onto view controller"
+[MapViewConstraints]: {{site.baseurl}}/images/2015-10-04/05-MapViewConstraints.png "Setup the map view constraints"
+[MapViewConnection]: {{site.baseurl}}/images/2015-10-04/06-MapViewConnection.png "Setup the map view connections"
+[DelegateConnection]: {{site.baseurl}}/images/2015-10-04/07-DelegateConnection.png "Setup the delegate connections"
+[AddMapKitFramework]: {{site.baseurl}}/images/2015-10-04/08-AddMapKitFramework.png "Add the MapKit Framework"
+[MapViewControllerProjectNavigator]: {{site.baseurl}}/images/2015-10-04/09-ProjectNavigator.png "Switch to the main view controller"
+[WorkingMapView]: {{site.baseurl}}/images/2015-10-04/10-WorkingMapView.png "Working Map View"
+[NewFile]: {{site.baseurl}}/images/2015-10-04/11-NewFile.png "New File"
+[CocoaTouchClass]: {{site.baseurl}}/images/2015-10-04/12-CocoaTouchClass.png "New Cooca Touch Class"
+[NamePerson]: {{site.baseurl}}/images/2015-10-04/13-NamePerson.png "Name Person"
+[Images]: {{site.baseurl}}/images/2015-10-04/14-Images.png "Import images into the project"
+[NSBeginnerFinal]: {{site.baseurl}}/images/2015-10-04/15-NSBeginnerFinal.png "Added your custom annotations to the MKMapView"
 
 [LinkNSBeginner]: GMCallout-NSBeginner
 [LinkNSIntermediate]: GMCallout-NSIntermediate

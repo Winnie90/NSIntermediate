@@ -12,7 +12,7 @@ In this tutorial we will be showing you how to create a Google Maps style callou
 * In [NSExtras][LinkNSExtras] we will show you how to animate the callout on screen, show the user's location, show the distance to your annotations and open directions to your annotations in Apple Maps. 
 
 ## NSIntermediate
-In this NSIntermediate tutorial we will be adding our very own Google Maps style callout to our map view. We will be carrying on with the project from the [NSBeginner][LinkNSBeginner] tutorial. You finished the [NSBeginner][LinkNSBeginner]tutorial with your custom annotations being displayed on the map. Or if you've come straight here and want a refresher on mapviews and custom annotations check out [NSBeginner][LinkNSBeginner].
+In this NSIntermediate tutorial we will be adding our very own Google Maps style callout to our map view. We will be carrying on with the project from the [NSBeginner][LinkNSBeginner] tutorial. You finished the [NSBeginner][LinkNSBeginner] tutorial with your custom annotations being displayed on the map. Or if you've come straight here and want a refresher on mapviews and custom annotations check out [NSBeginner][LinkNSBeginner].
 
 ![Added your custom annotations to the MKMapView][NSBeginnerFinal]
 
@@ -62,13 +62,13 @@ You can now drag assets onto your cell, you can chustomise these out how you wan
 
 If you want to add some polish to your new Google Maps style callout, head to [NSExtras][LinkNSExtras]. Here we will show you how to animate the callout on screen, show the user's location, show the distance to your annotations and open directions to your annotations in Apple Maps. 
 
-[example]: /images/2015-10-04/00-Example.png "Example of the Google Maps Style Callout"
-[NSBeginnerFinal]: /images/2015-10-04/15-NSBeginnerFinal.png "Added your custom annotations to the MKMapView"
-[UICollectionView]: /images/2015-10-04/16-UICollectionView.png "Add a UICollectionView on top of your view controller"
-[UICollectionViewProperties]: /images/2015-10-04/17-UICollectionViewProperties.png "Change the UICollectionViewProperties"
-[UICollectionViewConstraints]: /images/2015-10-04/18-UICollectionViewConstraints.png "Change the UICollectionView Constraints"
-[UICollectionViewSizeInspector]: /images/2015-10-04/19-UICollectionViewSizeInspector.png "Change the UICollectionView cell size and minimum spacing"
-[UICollectionViewCell]: /images/2015-10-04/20-UICollectionViewCell.png "Add assets to the UICollectionViewCell"
+[example]: {{site.baseurl}}/images/2015-10-04/00-Example.png "Example of the Google Maps Style Callout"
+[NSBeginnerFinal]: {{site.baseurl}}/images/2015-10-04/15-NSBeginnerFinal.png "Added your custom annotations to the MKMapView"
+[UICollectionView]: {{site.baseurl}}/images/2015-10-04/16-UICollectionView.png "Add a UICollectionView on top of your view controller"
+[UICollectionViewProperties]: {{site.baseurl}}/images/2015-10-04/17-UICollectionViewProperties.png "Change the UICollectionViewProperties"
+[UICollectionViewConstraints]: {{site.baseurl}}/images/2015-10-04/18-UICollectionViewConstraints.png "Change the UICollectionView Constraints"
+[UICollectionViewSizeInspector]: {{site.baseurl}}/images/2015-10-04/19-UICollectionViewSizeInspector.png "Change the UICollectionView cell size and minimum spacing"
+[UICollectionViewCell]: {{site.baseurl}}/images/2015-10-04/20-UICollectionViewCell.png "Add assets to the UICollectionViewCell"
 
 [LinkNSBeginner]: GMCallout-NSBeginner
 [LinkNSIntermediate]: GMCallout-NSIntermediate
