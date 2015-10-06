@@ -203,6 +203,7 @@ Now we want to add the code that scrolls to the correct Person Cell when and Ann
     //5
     [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
+```
 
 1. Implement the `MKMapViewDelegate` protocol method `didSelectAnnotationView`.
 2. Cast the received annotation to your own custom annotation class.
