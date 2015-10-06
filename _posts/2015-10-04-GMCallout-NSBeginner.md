@@ -328,6 +328,6 @@ Your project is now set up to follow along with the [NSIntemediate][LinkNSInterm
 [Images]: {{site.baseurl}}/images/2015-10-04/14-Images.png "Import images into the project"
 [NSBeginnerFinal]: {{site.baseurl}}/images/2015-10-04/15-NSBeginnerFinal.png "Added your custom annotations to the MKMapView"
 
-[LinkNSBeginner]: GMCallout-NSBeginner
-[LinkNSIntermediate]: GMCallout-NSIntermediate
-[LinkNSExtras]: GMCallout-NSExtras
+[LinkNSBeginner]: {{site.baseurl}}/GMCallout-NSBeginner
+[LinkNSIntermediate]: {{site.baseurl}}/GMCallout-NSIntermediate
+[LinkNSExtras]: {{site.baseurl}}/GMCallout-NSExtras

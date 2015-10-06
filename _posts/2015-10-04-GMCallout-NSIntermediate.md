@@ -163,6 +163,7 @@ You will also need to implement the UICollectionViewDelegate method to make the 
     //2
     return CGSizeMake(CGRectGetWidth(self.view.frame), 100.0);
 }
+```
 
 1. This delegate method lets you return a custom size for each cell given an `indexPath`.
 2. We want to return the same size for every cell. You can use `CGRectGetWidth(self.view.frame)` to get the width of the superviews frame. We set the height to 100 as it's the height of our UICollectionView.
@@ -235,6 +236,6 @@ If you want to add some polish to your new Google Maps style callout, head to [N
 [WorkingCollectionView]: {{site.baseurl}}/images/2015-10-04/25-WorkingCollectionView.png "You're Collection View should now be working but the pins aren't connected to the collection view."
 
 
-[LinkNSBeginner]: GMCallout-NSBeginner
-[LinkNSIntermediate]: GMCallout-NSIntermediate
-[LinkNSExtras]: GMCallout-NSExtras
+[LinkNSBeginner]: {{site.baseurl}}/GMCallout-NSBeginner
+[LinkNSIntermediate]: {{site.baseurl}}/GMCallout-NSIntermediate
+[LinkNSExtras]: {{site.baseurl}}/GMCallout-NSExtras

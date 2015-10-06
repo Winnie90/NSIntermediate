@@ -15,6 +15,8 @@ In this tutorial we will be showing you how to create a Google Maps style callou
 
 Coming Soon
 
-[LinkNSBeginner]: GMCallout-NSBeginner
-[LinkNSIntermediate]: GMCallout-NSIntermediate
-[LinkNSExtras]: GMCallout-NSExtras
+[example]: {{site.baseurl}}/images/2015-10-04/00-Example.png "Example of the Google Maps Style Callout"
+
+[LinkNSBeginner]: {{site.baseurl}}/GMCallout-NSBeginner
+[LinkNSIntermediate]: {{site.baseurl}}/GMCallout-NSIntermediate
+[LinkNSExtras]: {{site.baseurl}}/GMCallout-NSExtras
