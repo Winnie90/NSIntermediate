@@ -222,6 +222,7 @@ You can either use a standard MKPinAnnotationView or for more options going forw
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
+@property (nonatomic, assign) NSInteger index;
 
 //4
 - (id)initWithPerson:(Person*)person;
@@ -231,7 +232,8 @@ You can either use a standard MKPinAnnotationView or for more options going forw
 1. To subclass an annotation you will need to import Mapkit and we want create an annotation with a Person so this neeeds to be imported.
 2. The annotation needs to conform to the `MKAnnotation` protocol.
 3. You need to subclass the annotations' properties.
-4. You can then create your own initialization method.
+4. We want to store the `mapData` index with the annotation for `CollectionView` functionality in [NSIntemediate][LinkNSIntermediate]. 
+5. You can then create your own initialization method.
 
 Switch to the **PersonAnnotation.m** file and star implementing your new annotation class.
 ```objective-c
@@ -239,11 +241,12 @@ Switch to the **PersonAnnotation.m** file and star implementing your new annotat
 
 @implementation PersonAnnotation
 //1
-- (id)initWithPerson:(Person *)person{
+- (id)initWithPerson:(Person *)person atIndex:(NSInteger)index{
     if ((self = [super init])) {
         _title = person.name;
         _subtitle = person.activity;
         _coordinate = person.location;
+        _index = index;
     }
     return self;
 }
@@ -285,11 +288,13 @@ You can now add your own custom annotations to the map. Switch to **ViewControll
 #pragma mark Private
 
 -(void)addMarkersToMap {
+    NSInteger index = 0;
     //3
     for(Person *person in self.mapData){
     	//4
-        PersonAnnotation *annotation = [[PersonAnnotation alloc] initWithPerson:person];
+        PersonAnnotation *annotation = [[PersonAnnotation alloc] initWithPerson:person atIndex:index];
         [self.mapView addAnnotation:annotation];
+        index++;
     }
     [self.mapView showAnnotations:self.mapView.annotations animated:YES];
     
@@ -298,7 +303,7 @@ You can now add your own custom annotations to the map. Switch to **ViewControll
 1. You need to import the `Person.h` and `PersonAnnotation.h` header files.
 2. On `viewDidLoad` you can call `addMarkersToMap`.
 3. In the `addMarkersToMap` method you need to loop through your map data. Cast the data to `Person`. 
-4. You can then initialize your custom annotation with the person.
+4. You can then initialize your custom annotation with the person. We want to store the `mapData` index with the annotation for CollectionView functionality in [NSIntemediate][LinkNSIntermediate]. 
 5. Add the annotation to the map view.
 6. Once all of the annotations have been added you can move maps viewport to show them.
 
