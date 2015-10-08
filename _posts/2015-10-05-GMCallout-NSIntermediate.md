@@ -1,14 +1,14 @@
 ---
 layout: default
 ---
-# Create Your Own Google Maps Style Callout - NSIntermediate
+#  NSIntermediate - Create Your Own Google Maps Style Callout
 
 ![Example of the Google Maps Style Callout][example]
 
 In this tutorial we will be showing you how to create a Google Maps style callout for your pins in native iOS maps. Showing location based information to users can be a challenge. We really liked the style and functionality of the Google maps application and we thought we would show you how to replicate it in your own application. 
 
 * In [NSBeginner][LinkNSBeginner] we will show you how to show a map in your application and then pin data to it.
-* In [NSIntemediate][LinkNSIntermediate] we will show you how to create the GMS Callout and populate it with your data.
+* In [NSIntemediate][LinkNSIntermediate] we will show you how to create the GMS Callout and populate it with your data. We will also show you how to link the annotation data to the callout data.
 * In [NSExtras][LinkNSExtras] we will show you how to animate the callout on screen, show the user's location, show the distance to your annotations and open directions to your annotations in Apple Maps. 
 
 ## NSIntermediate
@@ -144,6 +144,7 @@ In your **ViewController.h** file you will need to add some code now to pass you
 }
 ```
 You can now add the `UICollectionViewDataSource` protocol methods to provide data to your `UICollectionView`.
+
 1. You need to tell the collection view how many items are in the section. Return the number of items in your mapData array.
 2. You now need to provide a cell for the index path given.
 3. You can retrieve a person object from your `mapData` array using the index paths row parameter.
@@ -216,9 +217,90 @@ If you Build and Run now you will be able to select an annotation and your UICol
 
 ##Linking CollectionViewCells to Annotations
 
-When we page through our UICollectionView we want the correct annotation to be selected on the map.
+When we swipe through our `UICollectionView` we want the correct annotation to be selected on the map. But first we need to add a BOOL to keep track of whether the user selected the annotation or we selected it using our collection view. This prevents a circular reference where collection view calls annotation view then annotation view calls collection view and so on.
 
-To do this we need to conform to some UICollectionViewDelegate methods
+```objective-c
+//1
+@interface ViewController () <MKMapViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+...
+@property (assign, nonatomic) BOOL userSelectedAnnotation;
+
+@end
+
+//2
+-(void)viewDidLoad{
+    ...
+    self.userSelectedAnnotation = YES;
+}
+```
+
+1. We want to create a BOOL property in the `ViewController` interface.
+2. In our `viewDidLoad` call we set our BOOL to yes.
+
+To recognize when a user has selected a cell we need to conform to some `UIScrollViewDelegate` protocol methods. We do not need to tell the UIViewController as we have already told it to conform to the `UICollectionViewDelegate` protocol which inherits all of the `UIScrollViewDelegate` methods.
+
+```objective-c
+#pragma mark <UIScrollViewDelegate>
+//1
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    //2
+    UICollectionViewCell* cell = [self.collectionView visibleCells][0];
+    //3
+    NSIndexPath* indexPath = [self.collectionView indexPathForCell:cell];
+    //4
+    PersonAnnotation *annotation = [self annotationForIndexPath:indexPath];
+    //5
+    self.userSelectedAnnotation = NO;
+    //6
+    [self.mapView selectAnnotation:annotation animated:YES];
+    self.userSelectedAnnotation = YES;
+}
+```
+
+This is a complicated method so let's walk through it step by step:
+1. We want to use `UIScrollViewDelegate`'s `scrollViewDidEndDecelerating` method this will be called when the user has finished paginating to the new item in the UICollectionView.
+2. You can retrieve the visible cells from the collectionView. This should be an array of 1 object as your current cell should be the only visible cell on the screen. 
+3. You can now get an index path for the cell.
+4. We have created a private method to convert a cell's index path to a `PersonAnnotation`.
+5. We need to set our `BOOL` here to prevent a circular reference.
+6. We can now use a `mapView` method, `selectAnnotation` to animate the current viewport to our `PersonAnnotation` and bring up the default callout.
+
+**Note: If you have problems with step 2 where an array of multiple objects are returned which causes your selected annotation to stay on the last Person. You need to make sure your UICollectionView constraints don't conform to the margins. I also had to adjust the cell min spacing in `UICollectionView` to 1.**
+
+In our own `annotationForIndexPath` method we are returning the `PersonAnnotation` for a given `indexPath`.
+
+```objective-c
+- (PersonAnnotation*)annotationForIndexPath:(NSIndexPath*)indexPath{
+    //1
+    for (PersonAnnotation *annotation in self.mapView.annotations) {
+        //2
+        if (annotation.index == indexPath.row) {
+            return annotation;
+        }
+    }
+    return nil;
+}
+```
+
+1. We want to loop through all of the annotations on the `mapView`.
+2. If the annotations' index matches the row of the current index path then return the annotation.
+
+We just need to add our `userSelectedAnnotation` `BOOL` to our `didSelectAnnotationView` method to stop it from trying to change the collection view. 
+
+```objective-c
+#pragma mark MKMapViewDelegate
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    //1
+    if(self.userSelectedAnnotation)  {
+        PersonAnnotation *annotation = (PersonAnnotation*)view.annotation;
+        [self showPersonWithName:annotation.title];
+    }
+}
+```
+
+![You have now finished the NSIntermediate tutorial][FinishedNSIntermediate]
+
 
 If you want to add some polish to your new Google Maps style callout, head to [NSExtras][LinkNSExtras]. Here we will show you how to animate the callout on screen, show the user's location, show the distance to your annotations and open directions to your annotations in Apple Maps. 
 
@@ -233,7 +315,8 @@ If you want to add some polish to your new Google Maps style callout, head to [N
 [CellIdentityInspector]: {{site.baseurl}}/images/2015-10-04/22-CellIdentityInspector.png "In the identity inspector set the class to PersonCollectionViewCell"
 [CellConnectionsInspector]: {{site.baseurl}}/images/2015-10-04/23-CellConnectionsInspector.png "In the Connections Inspector you can now hook up the Outlets to the assets in the storyboard"
 [UICollectionViewOutlets]: {{site.baseurl}}/images/2015-10-04/24-UICollectionViewOutlets.png "In the Connections Inspector you can hook up the Outlets to the ViewController"
-[WorkingCollectionView]: {{site.baseurl}}/images/2015-10-04/25-WorkingCollectionView.png "You're Collection View should now be working but the pins aren't connected to the collection view."
+[WorkingCollectionView]: {{site.baseurl}}/images/2015-10-04/25-WorkingCollectionView.png "You're Collection View should now be working but the pins aren't connected to the collection view"
+[FinishedNSIntermediate]: {{site.baseurl}}/images/2015-10-04/26-FinishedNSIntermediate.png "You have now finished the NSIntermediate tutorial"
 
 
 [LinkNSBeginner]: {{site.baseurl}}/GMCallout-NSBeginner
